@@ -1,14 +1,16 @@
 package dungeons.app;
 import dungeons.app.pkg.images.ImageUtils;
+import snap.gfx.Color;
 import snap.gfx.Image;
 import snap.gfx.Painter;
+import snap.gfx.ShadowEffect;
 import snap.view.View;
 import snap.view.ViewUtils;
 
 /**
- * This class represents the hero.
+ * This class represents twat.
  */
-public class Hero extends View {
+public class Elon extends View {
 
     // The image state
     private int _imageState;
@@ -16,58 +18,53 @@ public class Hero extends View {
     // The hero tile location
     private double _tileX, _tileY;
 
-    private static final Image HeroRight = Image.getImageForClassResource(DungeonView.class, "pkg.images/Hero.png");
-    private static final Image HeroLeft = ImageUtils.flipImageX(HeroRight);
-    private static final Image HeroUp = Image.getImageForClassResource(DungeonView.class, "pkg.images/HeroUp.png");
-    private static final Image HeroDown = Image.getImageForClassResource(DungeonView.class, "pkg.images/HeroDown.png");
+    private static final Image ElonRight = Image.getImageForClassResource(DungeonView.class, "pkg.images/Elon.png");
+    private static final Image ElonLeft = ImageUtils.flipImageX(ElonRight);
 
     /**
      * Constructor.
      */
-    public Hero()
+    public Elon()
     {
         setSize(100, 100);
+        setEffect(new ShadowEffect(15, Color.GREEN.darker().darker(), 2, 2));
+        runIntervals(this::updateCharacter, 800);
     }
 
     public void moveRight()
     {
-        _imageState = 0;
-        repaint();
-        if (getMaxX() + 100 > getParent().getWidth())
-            return;
         getAnim(0).clear().getAnim(500).setX(getX() + 100).needsFinish().play();
         getAnim(0).setOnFinish(this::finishedAnim);
+        _imageState = 0;
     }
 
     public void moveLeft()
     {
-        _imageState = 1;
-        repaint();
-        if (getX() - 100 < 0)
-            return;
         getAnim(500).clear().setX(getX() - 100).needsFinish().play();
         getAnim(0).setOnFinish(this::finishedAnim);
+        _imageState = 1;
     }
 
     public void moveUp()
     {
-        _imageState = 2;
-        repaint();
-        if (getY() - 100 < 0)
-            return;
         getAnim(500).clear().setY(getY() - 100).needsFinish().play();
         getAnim(0).setOnFinish(this::finishedAnim);
     }
 
     public void moveDown()
     {
-        _imageState = 3;
-        repaint();
-        if (getMaxY() + 100 > getParent().getHeight())
-            return;
         getAnim(500).clear().setY(getY() + 100).needsFinish().play();
         getAnim(0).setOnFinish(this::finishedAnim);
     }
+
+    private void updateCharacter()
+    {
+        _updateState = (_updateState + 1) % 6;
+        if (_updateState / 2d <= 1)
+            moveRight();
+        else moveLeft();
+    }
+    int _updateState = -1;
 
     private void finishedAnim()
     {
@@ -76,9 +73,6 @@ public class Hero extends View {
             if (child == this) continue;
             if (child.getBounds().intersectsRect(getBounds())) {
                 ViewUtils.removeChild(getParent(), child);
-                DungeonPane dungeonPane = getParent().getOwner(DungeonPane.class);
-                child.setPrefSize(child.getSize());
-                dungeonPane._inventoryView.addChild(child);
                 return;
             }
         }
@@ -90,10 +84,8 @@ public class Hero extends View {
     public Image getImageForState(int anId)
     {
         switch(anId) {
-            case 0: return HeroRight;
-            case 1: return HeroLeft;
-            case 2: return HeroUp;
-            case 3: return HeroDown;
+            case 0: return ElonRight;
+            case 1: return ElonLeft;
             default: return null;
         }
     }

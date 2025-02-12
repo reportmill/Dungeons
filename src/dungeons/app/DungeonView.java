@@ -44,17 +44,25 @@ public class DungeonView extends ParentView {
         loadMap();
 
         Key key1 = new Key();
-        key1.setXY(300, 400);
+        key1.setXY(300, 500);
         addChild(key1);
         Key key2 = new Key();
         key2.setXY(500, 200);
         addChild(key2);
         Key key3 = new Key();
-        key3.setXY(700, 600);
+        key3.setXY(700, 500);
         addChild(key3);
 
         _hero = new Hero();
         addChild(_hero);
+
+        Twat twat = new Twat();
+        twat.setXY(600, 600);
+        addChild(twat);
+
+        Elon elon = new Elon();
+        elon.setXY(100, 400);
+        addChild(elon);
 
         enableEvents(KeyPress);
         setFocusable(true);

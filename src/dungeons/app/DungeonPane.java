@@ -11,6 +11,9 @@ public class DungeonPane extends ViewOwner {
     // The DungeonView
     private DungeonView _dungeonView;
 
+    // The inventory view
+    protected ColView _inventoryView;
+
     @Override
     protected View createUI()
     {
@@ -21,13 +24,28 @@ public class DungeonPane extends ViewOwner {
 
         BoxView dungeonViewBox = new BoxView(_dungeonView);
         dungeonViewBox.setBorder(Color.get("#550055"), 12);
-        dungeonViewBox.setMargin(20, 20, 20, 20);
 
         ColView colView = new ColView();
-        colView.setFill(Color.get("#440044"));
         colView.setAlign(Pos.TOP_CENTER);
         colView.setChildren(label, dungeonViewBox);
-        return colView;
+        colView.setMargin(20, 20, 20, 20);
+
+        ColView menuView = new ColView();
+        menuView.setMargin(150, 20, 20, 20);
+        menuView.setPrefWidth(100);
+
+        _inventoryView = new ColView();
+        _inventoryView.setMargin(150, 20, 20, 20);
+        _inventoryView.setPrefWidth(100);
+
+        RowView rowView =  new RowView();
+        rowView.setChildren(menuView, colView, _inventoryView);
+        rowView.setAlign(Pos.TOP_CENTER);
+
+        ScaleBox scaleBox = new ScaleBox(rowView);
+        scaleBox.setFill(Color.get("#440044"));
+        scaleBox.setKeepAspect(true);
+        return scaleBox;
     }
 
     @Override

@@ -29,22 +29,30 @@ public class DungeonView extends ParentView {
     private static final Image WallCornerFrontRight = ImageUtils.flipImageX(WallCornerFrontLeft);
     private static final Image WallCornerBackLeft = Image.getImageForClassResource(DungeonView.class, "pkg.images/WallCornerBack.png");
     private static final Image WallCornerBackRight = ImageUtils.flipImageX(WallCornerBackLeft);
+    private static final Image PlateTile1 = Image.getImageForClassResource(DungeonView.class, "pkg.images/PlateTile1.png");
 
     /**
      * Constructor.
      */
     public DungeonView()
     {
+        super();
         _tileWidth = 8;
         _tileHeight = 7;
         _tileSize = 100;
 
         loadMap();
 
+        Key key = new Key();
+        key.setXY(300, 400);
+        addChild(key);
+
         _hero = new Hero();
         addChild(_hero);
 
         enableEvents(KeyPress);
+        setFocusable(true);
+        setFocusWhenPressed(true);
     }
 
     /**
@@ -68,6 +76,7 @@ public class DungeonView extends ParentView {
             case 2: return WallCornerFrontRight;
             case 3: return WallCornerBackLeft;
             case 4: return WallCornerBackRight;
+            case 5: return PlateTile1;
             default: return null;
         }
     }
@@ -123,11 +132,11 @@ public class DungeonView extends ParentView {
 
     private static int[][] Map1 = {
             { 0, 0, 0, 0, 0, 0, 0, 0 },
-            { 0, 0, 3, 4, 0, 0, 0, 0 },
+            { 0, 0, 3, 4, 0, 0, 5, 0 },
             { 0, 0, 1, 2, 0, 0, 0, 0 },
             { 0, 0, 0, 0, 0, 0, 0, 0 },
             { 0, 0, 0, 0, 0, 3, 4, 0 },
-            { 0, 0, 0, 0, 0, 1, 2, 0 },
+            { 0, 5, 0, 0, 0, 1, 2, 0 },
             { 0, 0, 0, 0, 0, 0, 0, 0 }
     };
 }

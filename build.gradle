@@ -25,6 +25,13 @@ dependencies {
     implementation project(':SnapKit')
 }
 
-test {
-    useJUnitPlatform()
+task copyCJ(type: Copy) {
+    from (
+            "../CJDom/cjdom.js",
+            "../CJDom/build/libs/CJDom-" + new SimpleDateFormat("yyyy.MM").format(new Date()) + ".jar",
+            "../SnapCJ/build/libs/SnapCJ-" + new SimpleDateFormat("yyyy.MM").format(new Date()) + ".jar",
+            "../SnapKit/build/libs/SnapKit-" + new SimpleDateFormat("yyyy.MM").format(new Date()) + ".jar"
+    )
+    into "build/libs"
+    dependsOn build
 }

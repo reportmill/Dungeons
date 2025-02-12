@@ -59,8 +59,8 @@ public class Elon extends View {
 
     private void updateCharacter()
     {
-        _updateState = (_updateState + 1) % 6;
-        if (_updateState / 2d <= 1)
+        _updateState = (_updateState + 1) % 4;
+        if (_updateState / 2d <= .5)
             moveRight();
         else moveLeft();
     }

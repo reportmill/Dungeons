@@ -17,7 +17,7 @@ public class DungeonPane extends ViewOwner {
     @Override
     protected View createUI()
     {
-        Label label = new Label("Dungeons Builder");
+        Label label = new Label("Dungeon Builder");
         label.setPropsString("Font:Times Bold 70; TextColor:WHITE; Margin:14,0,25,0; LeanX:CENTER");
         _dungeonView = new DungeonView();
         _dungeonView.setMargin(4, 4,4, 4);

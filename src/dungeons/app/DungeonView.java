@@ -43,9 +43,15 @@ public class DungeonView extends ParentView {
 
         loadMap();
 
-        Key key = new Key();
-        key.setXY(300, 400);
-        addChild(key);
+        Key key1 = new Key();
+        key1.setXY(300, 400);
+        addChild(key1);
+        Key key2 = new Key();
+        key2.setXY(500, 200);
+        addChild(key2);
+        Key key3 = new Key();
+        key3.setXY(700, 600);
+        addChild(key3);
 
         _hero = new Hero();
         addChild(_hero);

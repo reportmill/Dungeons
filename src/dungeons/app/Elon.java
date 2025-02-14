@@ -5,6 +5,7 @@ import snap.gfx.Image;
 import snap.gfx.Painter;
 import snap.gfx.ShadowEffect;
 import snap.view.View;
+import snap.view.ViewList;
 import snap.view.ViewUtils;
 
 /**
@@ -68,7 +69,7 @@ public class Elon extends View {
 
     private void finishedAnim()
     {
-        View[] children = getParent().getChildren();
+        ViewList children = getParent().getChildren();
         for (View child : children) {
             if (child == this) continue;
             if (child.getBounds().intersectsRect(getBounds())) {

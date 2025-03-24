@@ -1,6 +1,5 @@
 package dungeons.app;
-
-import snap.util.SnapUtils;
+import snap.util.SnapEnv;
 
 /**
  * The main class.
@@ -13,7 +12,7 @@ public class App {
     public static void main(String[] args)
     {
         DungeonPane dungeonPane = new DungeonPane();
-        dungeonPane.getWindow().setMaximized(SnapUtils.isWebVM);
+        dungeonPane.getWindow().setMaximized(SnapEnv.isWebVM);
         dungeonPane.setWindowVisible(true);
     }
 }

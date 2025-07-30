@@ -19,7 +19,7 @@ public class Twat extends View {
     private double _tileX, _tileY;
 
     private static final Image TwatRight = Image.getImageForClassResource(DungeonView.class, "pkg.images/Twat.png");
-    private static final Image TwatLeft = AppUtils.flipImageX(TwatRight);
+    private static final Image TwatLeft = TwatRight.copyflippedX();
 
     /**
      * Constructor.

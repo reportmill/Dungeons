@@ -1,5 +1,4 @@
 package dungeons.app;
-import dungeons.app.pkg.images.ImageUtils;
 import snap.gfx.Color;
 import snap.gfx.Image;
 import snap.gfx.Painter;
@@ -20,7 +19,7 @@ public class Twat extends View {
     private double _tileX, _tileY;
 
     private static final Image TwatRight = Image.getImageForClassResource(DungeonView.class, "pkg.images/Twat.png");
-    private static final Image TwatLeft = ImageUtils.flipImageX(TwatRight);
+    private static final Image TwatLeft = AppUtils.flipImageX(TwatRight);
 
     /**
      * Constructor.

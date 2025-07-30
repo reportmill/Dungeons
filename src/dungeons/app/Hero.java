@@ -1,5 +1,4 @@
 package dungeons.app;
-import dungeons.app.pkg.images.ImageUtils;
 import snap.gfx.Image;
 import snap.gfx.Painter;
 import snap.view.View;
@@ -18,7 +17,7 @@ public class Hero extends View {
     private double _tileX, _tileY;
 
     private static final Image HeroRight = Image.getImageForClassResource(DungeonView.class, "pkg.images/Hero.png");
-    private static final Image HeroLeft = ImageUtils.flipImageX(HeroRight);
+    private static final Image HeroLeft = AppUtils.flipImageX(HeroRight);
     private static final Image HeroUp = Image.getImageForClassResource(DungeonView.class, "pkg.images/HeroUp.png");
     private static final Image HeroDown = Image.getImageForClassResource(DungeonView.class, "pkg.images/HeroDown.png");
 

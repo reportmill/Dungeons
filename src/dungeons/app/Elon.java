@@ -1,5 +1,4 @@
 package dungeons.app;
-import dungeons.app.pkg.images.ImageUtils;
 import snap.gfx.Color;
 import snap.gfx.Image;
 import snap.gfx.Painter;
@@ -20,7 +19,7 @@ public class Elon extends View {
     private double _tileX, _tileY;
 
     private static final Image ElonRight = Image.getImageForClassResource(DungeonView.class, "pkg.images/Elon.png");
-    private static final Image ElonLeft = ImageUtils.flipImageX(ElonRight);
+    private static final Image ElonLeft = AppUtils.flipImageX(ElonRight);
 
     /**
      * Constructor.

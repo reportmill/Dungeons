@@ -1,9 +1,7 @@
 package dungeons.app;
-import dungeons.app.pkg.images.ImageUtils;
 import snap.gfx.Image;
 import snap.gfx.Painter;
 import snap.view.ParentView;
-import snap.view.View;
 import snap.view.ViewEvent;
 
 /**
@@ -26,9 +24,9 @@ public class DungeonView extends ParentView {
     // Tile images
     private static final Image StoneTile1 = Image.getImageForClassResource(DungeonView.class, "pkg.images/StoneTile1.png");
     private static final Image WallCornerFrontLeft = Image.getImageForClassResource(DungeonView.class, "pkg.images/WallCornerFront.png");
-    private static final Image WallCornerFrontRight = ImageUtils.flipImageX(WallCornerFrontLeft);
+    private static final Image WallCornerFrontRight = AppUtils.flipImageX(WallCornerFrontLeft);
     private static final Image WallCornerBackLeft = Image.getImageForClassResource(DungeonView.class, "pkg.images/WallCornerBack.png");
-    private static final Image WallCornerBackRight = ImageUtils.flipImageX(WallCornerBackLeft);
+    private static final Image WallCornerBackRight = AppUtils.flipImageX(WallCornerBackLeft);
     private static final Image PlateTile1 = Image.getImageForClassResource(DungeonView.class, "pkg.images/PlateTile1.png");
 
     /**

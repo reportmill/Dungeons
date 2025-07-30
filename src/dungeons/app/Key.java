@@ -1,5 +1,4 @@
 package dungeons.app;
-import dungeons.app.pkg.images.ImageUtils;
 import snap.gfx.Color;
 import snap.gfx.Image;
 import snap.gfx.Painter;

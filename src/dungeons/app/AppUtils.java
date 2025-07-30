@@ -1,11 +1,11 @@
-package dungeons.app.pkg.images;
+package dungeons.app;
 import snap.gfx.Image;
 import snap.gfx.Painter;
 
 /**
  * Image utilities.
  */
-public class ImageUtils {
+public class AppUtils {
 
     /**
      * Flips an image along X axis.

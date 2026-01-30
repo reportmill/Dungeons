@@ -109,10 +109,10 @@ public class DungeonView extends ParentView {
     }
 
     @Override
-    protected double getPrefWidthImpl(double aH)  { return _tileWidth * _tileSize; }
+    protected double computePrefWidth(double aH)  { return _tileWidth * _tileSize; }
 
     @Override
-    protected double getPrefHeightImpl(double aW)  { return _tileHeight * _tileSize; }
+    protected double computePrefHeight(double aW)  { return _tileHeight * _tileSize; }
 
     @Override
     protected void processEvent(ViewEvent anEvent)
